@@ -66,6 +66,9 @@ button:hover {
     margin: auto;
     justify-content: center;
 }
+a{
+    text-decoration: none;
+}
 .main-redes_icon i{
     color: #c9c9c9;
     font-size: 2rem;
