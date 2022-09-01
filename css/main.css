@@ -25,6 +25,12 @@ header {
     align-self: center;
     justify-self: center;
 }
+.banner{
+    height: min-content;
+    width: 90%;
+    justify-content: center;
+    margin: auto;
+}
 h1{
     font-family: 'Antic Didone', serif;
     text-align: center;
