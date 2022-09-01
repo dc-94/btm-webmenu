@@ -20,16 +20,14 @@ main{
     margin: auto;
 }
 header {
-    max-height: 120px;
-    width: fit-content;
-    align-self: center;
-    justify-self: center;
-}
-.banner{
-    height: min-content;
-    width: 90%;
+    margin: 0;
     justify-content: center;
-    margin: auto;
+    width: auto;
+    height: min-content;
+}
+.img-banner{
+    height: 90px;
+    width: auto;
 }
 h1{
     font-family: 'Antic Didone', serif;
