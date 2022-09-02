@@ -59,6 +59,11 @@ button:hover {
     font-weight: 400;
     box-shadow:  0px 0px  10px #ffffddcc ;
 }
+.btn-shows{
+    background-color: #401f1f;
+    color: #fafafa;
+}
+
 .main-redes{
     margin: auto;
     align-content: center;
