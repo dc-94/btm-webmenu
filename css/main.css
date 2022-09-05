@@ -1,7 +1,7 @@
 *{
     width: 100%;
     height:min-content;
-    font-size: 1rem;
+    font-size: 100%;
     font-family: 'Josefin Sans', sans-serif;
     color: antiquewhite;
     background-color: #1F1F1F;
@@ -9,19 +9,14 @@
 body{
     display: flex;
     flex-direction: column;
-    margin:  auto;
-    padding-top: 1rem;
+    margin: auto;
+    padding: 1rem 0;
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     justify-content: center;
     align-items: center;
 }
-main{
-    max-height: min-content;
-    justify-content: center;
-    margin: auto;
-    padding: 0;
-}
+
 header {
     margin: 0;
     justify-content: center;
@@ -29,8 +24,20 @@ header {
     height: min-content;
 }
 .img-banner{
-    height: 90px;
+    height: 70px;
     width: auto;
+}
+.img-banner-selected{
+    height: 40px;
+    width: auto;
+}
+main{
+    height: min-content;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 0 auto;
+    padding: 0;
+    width: min-content;
 }
 h1{
     font-family: 'Antic Didone', serif;
@@ -50,49 +57,71 @@ h3{
     color: #fafafa;
 }
 button{
-    padding: 0.7rem;
-    margin: 1rem;
+    padding: 0.6rem;
+    padding-top: 0.8rem;
+    margin: 0.7rem;
     height: fit-content;
     width: 80vw;
     background-color: #101010;
     border-style: none;
     border-radius: 8px;
-    color: #fafafa;
-    font-weight: 400;
-    font-size: 1.1rem;
-    
+    color: #fafafa;   
 }
 button:hover {
     color: #ffffe8;
     font-weight: 400;
     box-shadow:  0px 0px  10px #ffffddcc ;
 }
+.main-items{
+    padding: 1.5rem ;
+    margin: 0;
+}
+.main-items_btn{
+    font-weight: 400;
+    font-size: 1.13rem;
+}
+.btn-shows{
+    background-color: #401f1f;
+    color: #fafafa;
+}
+.home-btn{
+    position: fixed;
+    bottom: 30px;
+    left: 0px;
+    font-size: 1rem;
+    width: min-content;
+    padding: 1rem 2rem 1rem;
+    border-radius: 0 8px 8px 0;
+    margin-left: 0;
+    box-shadow:  0px 0px 20px #2c2a00a2 ;
+}
+
+
 .main-redes{
-    margin: auto;
-    align-content: center;
-    justify-content: center;
     display: block;
+    align-items: center;
+    justify-content: center;
+    width: min-content;
+    margin: auto;
 }
 .main-redes_icon {
     display: flex;
-    width: 50%;
-    margin: auto;
     justify-content: center;
-}
-a{
-    text-decoration: none;
 }
 .main-redes_icon i{
     color: #c9c9c9;
     font-size: 2rem;
-    margin: 0;
-    padding: 0;
+    margin: 1rem;
+    padding: 0 0.5rem;
+}
+a{
+    text-decoration: none;
 }
 
 iframe{
     justify-self: center;
     margin: auto;
     width: 97vw;
-    height: 62vh;
+    height: 100vh;
     border: #000000 3px;
 }
