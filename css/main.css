@@ -84,13 +84,21 @@ button:hover {
     background-color: #401f1f;
     color: #fafafa;
 }
+iframe{
+    justify-self: center;
+    margin: auto;
+    width: 97vw;
+    height: 100vh;
+    border: #000000 3px;
+}
 .home-btn{
     position: fixed;
     bottom: 30px;
     left: 0px;
-    font-size: 1rem;
+    font-size: 2rem;
     width: min-content;
-    padding: 1rem 2rem 1rem;
+    background-color: #101010dc;
+    padding: 0.5rem 1.5rem 0.5rem;
     border-radius: 0 8px 8px 0;
     margin-left: 0;
     box-shadow:  0px 0px 20px #2c2a00a2 ;
@@ -116,12 +124,4 @@ button:hover {
 }
 a{
     text-decoration: none;
-}
-
-iframe{
-    justify-self: center;
-    margin: auto;
-    width: 97vw;
-    height: 100vh;
-    border: #000000 3px;
 }
