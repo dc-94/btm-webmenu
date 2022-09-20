@@ -140,18 +140,18 @@ a{
     bottom: 30px;
     margin-right: 0;
     right: 0px;
-    width: auto;
+    border-radius: 8px;
+    width: min-content;
   }
   
   .dropdown {
-    background: #101010dc;
-    padding: 0.5rem 1.5rem 0.5rem;
+    padding: 0.5rem 1rem 0.5rem;
     border-radius:   8px 0 0 8px ;
     border: none;
     display: flex;
     font-size: 1.1rem;
     cursor: pointer;
-    color: #c9c9c9;
+    color: #fafafa;
     align-items: center;
     white-space: nowrap;
     box-shadow:  0px 0px 20px #2c2a00a2 ;
@@ -160,11 +160,10 @@ a{
   .ri-menu-fold-line {
     position: relative;
     font-size: 2rem;
-    transition: transform 0.3s ease;
-    font-size: 2rem;
+    /* transition: transform 0.2s ease-in-out; */
     background: none;
     width: min-content;
-    padding: 0.5rem 1.5rem 0.5rem;
+    padding: 0.5rem ;
     border-radius: 0 8px 8px 0;
   }
   
@@ -173,7 +172,6 @@ a{
   }
   
   .dropdown-menu {
-    background: #10101091;
     display: none;
     flex-direction: column;
     border-radius: 8px 8px 0 0 ;
@@ -183,24 +181,31 @@ a{
     transform-origin: bottom right;
     margin: 0 0.5rem;
   }
-
+  
   .dropdown-menu li {
-    padding: 10px;
+    padding: 7px;
+    margin: 5px 2px;
     flex-grow: 1;
-    width: 200px;
+    width: auto;
+    font-size: 1.5rem;
+    font-weight: 200;
+    color: #fafafa;
     box-sizing: border-box;
     text-align: center;
     cursor: pointer;
     list-style: none;
     transition: background 0.3s ease;
     background:none;
-    border-bottom: 1px solid hsla(51, 100%, 90%, 0.206);
+    border-bottom: 1px solid #fff7cc35;
+    border-radius: 8px ;
   }
   
-  .dropdown-menu li:active {
-    background: #969696;
+  .dropdown-menu li:hover {
+    background: #fff59b;
+    color: #2b291c;}
+  ul{
+    background: none;
   }
-  
   #openDropdown:checked + .dropdown-menu {
     display: flex;
 

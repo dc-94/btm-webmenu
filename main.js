@@ -7,7 +7,7 @@ $checkbox.addEventListener('change', () => {
 });
 
 $dropdownMenu.addEventListener('click', (e) => {
-  $checkbox.checked = false;
+  $checkbox.checked = true;
   // setting checked to false won't trigger 'change'
   // event, manually dispatch an event to rotate
   // dropdown arrow icon
