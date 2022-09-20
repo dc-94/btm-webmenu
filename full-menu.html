@@ -4,15 +4,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com"> 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
     <link href="https://fonts.googleapis.com/css2?family=Antic+Didone&family=Josefin+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="main.css">
     <title>Beatmemo Menu</title>
 </head>
 <body>
     <header>
+        <nav > 
+            <button class="home-btn" onclick=" window.location.href='webmenu.html' ">&#8672</button>
+            <div class="dropdown-container">
+                <label for="openDropdown" class="dropdown">
+                  <i class="ri-menu-fold-line"></i>
+                </label>
+                
+                <input type="checkbox" id="openDropdown" hidden>
+            
+                <ul class="dropdown-menu">
+                    <li  onclick="window.location.href = 'mediodia.html'"> Menu Ejecutivo </li> 
+                    <li  onclick="window.location.href = 'hh.html'"> Happy Hour </li>
+                    <li  onclick="window.location.href = 'whisky.html'"> Whisky Collection</li>
+                </ul>
+              </div>
+        </nav>
                 <h3 id="menu_name">Carta Principal</h3>
+
     </header>
     <main class="main">
         <section class="menu">
@@ -20,10 +39,9 @@
                 <iframe type="application/pdf" src="menus/full-menu.pdf#toolbar=0" >
                 </iframe>
             </div>
-            <button class="home-btn" onclick=" window.location.href='webmenu.html' ">&#8672</button>
         </section>
     </main>
-</body>
 <script type="text/javascript" src="main.js">
     </script>
+</body>
 </html>
