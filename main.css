@@ -103,7 +103,17 @@ iframe{
     border-radius: 0 8px 8px 0;
     box-shadow:  0px 0px 20px #2c2a00a2 ;
 }
-
+/* navegacion pdf */
+.navpdf{
+    width: min-content;
+}
+#canvas_container{
+    height: 85vh;
+    background-color: #401f1f;
+}
+canvas{
+    height: auto;
+}
 
 .main-redes{
     display: block;

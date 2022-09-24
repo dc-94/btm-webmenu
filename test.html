@@ -8,27 +8,49 @@
     <link rel="preconnect" href="https://fonts.googleapis.com"> 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
     <link href="https://fonts.googleapis.com/css2?family=Antic+Didone&family=Josefin+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" 
+    rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js" ></script>
+    
     <title>Beatmemo Menu</title>
 </head>
 <body>
-
-    <button class="home-btn" onclick=" window.location.href='index.html' ">&#8672</button>
-    <div class="dropdown-container">
-        <label for="openDropdown" class="dropdown">
-          MENU <i class="ri-menu-fold-line"></i>
-        </label>
+    <header>
+        <h3 id="pdf_name">NAME</h3>
         
-        <input type="checkbox" id="openDropdown" hidden>
-    
-        <ul class="dropdown-menu">
-            <li  onclick="window.location.href = 'full-menu.html'" > Carta Principal </li>
-            <li  onclick="window.location.href = 'mediodia.html'"> Menu Ejecutivo </li> 
-            <li  onclick="window.location.href = 'hh.html'"> Happy Hour </li>
-            <li  onclick="window.location.href = 'whisky.html'"> Whisky Collection</li>
-        </ul>
-      </div>
-<script type="text/javascript" src="main.js">
-    </script>
+        <nav >
+            <div class="backbtn">
+                <button class="home-btn" onclick=" window.location.href='index.html' ">&#8672</button>
+            </div>
+
+            <div class="navPdf">
+                <button class="navpdf" id="prev">prev</button>
+                <span>page: <span id="page_num"></span>/ <span id="page_count"></span></span>
+                <button class="navpdf" id="next">next</button>
+            </div>
+
+            <div class="dropdown-container">
+                <label for="openDropdown" class="dropdown">
+                  MENU <i class="ri-menu-fold-line"></i>
+                </label>
+                
+                <input type="checkbox" id="openDropdown" hidden>
+            
+                <ul class="dropdown-menu">
+                    <li  onclick="window.location.href = 'full-menu.html'" > Carta Principal </li>
+                    <li  onclick="window.location.href = 'mediodia.html'"> Menu Ejecutivo </li> 
+                    <li  onclick="window.location.href = 'hh.html'"> Happy Hour </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section id="my_pdf_viewer">
+        <div id="canvas_container">
+            <canvas id="pdf_canvas" width="1000" height="1000"></canvas>
+        </div>
+    </section>
+    <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript" src="pdfview.js"></script>
 </body>
 </html>
