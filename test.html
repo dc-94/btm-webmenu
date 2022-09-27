@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="theme-color" content="#101010">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com"> 
@@ -17,19 +18,19 @@
 <body>
     <header>
         <h3 id="pdf_name">NAME</h3>
-        
+
         <nav >
-            <div class="backbtn">
+            <div class="nav_item">
                 <button class="home-btn" onclick=" window.location.href='index.html' ">&#8672</button>
             </div>
 
-            <div class="navPdf">
-                <button class="navpdf" id="prev">prev</button>
-                <span>page: <span id="page_num"></span>/ <span id="page_count"></span></span>
-                <button class="navpdf" id="next">next</button>
+            <div class="nav_item nav_item-pdf">
+                <button class="navpdf" id="prev"> < </button>
+                <span id="page_num"></span> / <span id="page_count"></span>
+                <button class="navpdf" id="next"> > </button>
             </div>
 
-            <div class="dropdown-container">
+            <div class="dropdown-container nav_item">
                 <label for="openDropdown" class="dropdown">
                   MENU <i class="ri-menu-fold-line"></i>
                 </label>
@@ -51,6 +52,67 @@
         </div>
     </section>
     <script type="text/javascript" src="main.js"></script>
-    <script type="text/javascript" src="pdfview.js"></script>
+    <script type="text/javascript">var pdfDoc = null,
+        pageNum = 1,
+        pageRendering = false,
+        pageNumPending = null,
+        scale = 1.5,
+        canvas = document.getElementById('pdf_canvas')
+        ctx = canvas.getContext('2d')
+        
+        
+        function renderPage(num){
+            pageRendering = true
+            pdfDoc.getPage(num).then((page)=>{
+                var viewport = page.getViewport({scale: canvas.height / page.getViewport({scale: 1}).height});
+                canvas.width = viewport.width
+                
+                var renderContext ={
+                    canvasContext: ctx,
+                    viewport: viewport
+                }
+                var renderTask = page.render(renderContext)
+                renderTask.promise.then(()=>{
+                    pageRendering = false;
+                    if (pageNumPending !== null){
+                        renderPage(pageNumPending)
+                        pageNumPending = null
+                    }
+                })
+            })
+            document.getElementById('page_num').textContent = num;
+        }
+        
+        function queueRenderPage(num){
+            if (pageRendering){
+                pageNumPending = num
+            }else{
+                renderPage(num)
+            }
+        }
+        function onPrevPage(){
+            if (pageNum <= 1){
+                return;
+            }
+            pageNum--;
+            queueRenderPage(pageNum)
+        }
+        document.getElementById('prev').addEventListener('click',onPrevPage)
+        
+        function onNextPage(){
+            if(pageNum >= pdfDoc.numPages){
+                return;
+            }
+            pageNum++;
+            queueRenderPage(pageNum)
+        }
+        document.getElementById('next').addEventListener('click',onNextPage)
+        
+        pdfjsLib.getDocument('menus/full-menu.pdf').promise.then((doc) => {
+            pdfDoc = doc
+            document.getElementById('page_count').textContent = doc.numPages;
+            renderPage(pageNum)
+        })
+     </script>
 </body>
 </html>
