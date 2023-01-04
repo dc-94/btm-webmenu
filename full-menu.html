@@ -108,7 +108,7 @@
         }
         document.getElementById('next').addEventListener('click',onNextPage)
         
-        pdfjsLib.getDocument('menus/full-menu.pdf').promise.then((doc) => {
+        pdfjsLib.getDocument('menus/menuqr.pdf').promise.then((doc) => {
             pdfDoc = doc
             document.getElementById('page_count').textContent = doc.numPages;
             renderPage(pageNum)
