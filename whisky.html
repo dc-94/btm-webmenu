@@ -107,7 +107,7 @@
         }
         document.getElementById('next').addEventListener('click',onNextPage)
         
-        pdfjsLib.getDocument('menus/whisky-collection1.pdf').promise.then((doc) => {
+        pdfjsLib.getDocument('menus/W2023-01.pdf').promise.then((doc) => {
             pdfDoc = doc
             document.getElementById('page_count').textContent = doc.numPages;
             renderPage(pageNum)
