@@ -108,7 +108,7 @@
         }
         document.getElementById('next').addEventListener('click',onNextPage)
         
-        pdfjsLib.getDocument('menus/BEATMEMOarzo.pdf').promise.then((doc) => {
+        pdfjsLib.getDocument('menus/BEATMEMOMayo.pdf').promise.then((doc) => {
             pdfDoc = doc
             document.getElementById('page_count').textContent = doc.numPages;
             renderPage(pageNum)
