@@ -5,25 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="theme-color" content="#101010">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="./webmenu.css">
     <link rel="preconnect" href="https://fonts.googleapis.com"> 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
     <link href="https://fonts.googleapis.com/css2?family=Antic+Didone&family=Josefin+Sans:wght@300;400;500&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
-    <link rel="shortcut icon" type="image/jpg" href="btm-favicon.png"/>
+    <link rel="shortcut icon" type="./image/jpg" href="./btm-favicon.png"/>
     <title>Beatmemo Menu</title>
 </head>
 <body>
     <header>
-            <img class="img-banner" src="recurso1.png" alt="Beatmemo logo">
+            <img class="img-banner" src="./recurso1.png" alt="Beatmemo logo">
     </header>
     <main class="main">
         <section class="main-items">
+            <button id="btn1"  class="main-items_btn" onclick="window.location.href = './full-menu.html'" > Carta Principal </button>
             <div class="main-items_btns">
-                <button id="btn1"  class="main-items_btn" onclick="window.location.href = 'full-menu.html'" > Carta Principal </button>
-                <button id="btn2"  class="main-items_btn" onclick="window.location.href = 'mediodia.html'"> Menu Ejecutivo </button>
-                <button id="btn3" class="main-items_btn"  onclick="window.location.href = 'hh.html'"> Happy Hour </button>
-                <button id="btn4" class="main-items_btn"  onclick="window.location.href = 'whisky.html'"> Whisky Collection </button>
+                <button id="btn2"  class="main-items_btn" onclick="window.location.href = './mediodia.html'"> Menu Ejecutivo </button>
+                <button id="btn3" class="main-items_btn"  onclick="window.location.href = './hh.html'"> Happy Hour </button>
+                <button id="btn4" class="main-items_btn"  onclick="window.location.href = './whisky.html'"> Whisky Collection </button>
                 <button class="btn-shows" onclick="window.location.href = 'http://beatmemo.com.ar/page/noticias'"> Agenda de Shows </button>
                 <!-- <button onclick="window.location.href = ' ';"> Rooftop </button> -->
             </div>
@@ -52,6 +52,6 @@
             </div>
         </footer>
 </body>
-    <script type="text/javascript" src="main.js">
+    <script type="text/javascript" src="./webmenu.js">
         </script>
 </html>

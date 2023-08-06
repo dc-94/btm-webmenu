@@ -5,12 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="theme-color" content="#101010">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="./webmenu.css">
     <link rel="preconnect" href="https://fonts.googleapis.com"> 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
     <link href="https://fonts.googleapis.com/css2?family=Antic+Didone&family=Josefin+Sans:wght@300;400;500&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
-    <link rel="stylesheet" href="main.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js" ></script>
     <link rel="shortcut icon" type="image/jpg" href="btm-favicon.png"/>
     <title>Beatmemo Menu</title>
@@ -21,7 +20,7 @@
 
         <nav >
             <div class="nav_item">
-                <button class="home-btn" onclick=" window.location.href='index.html' ">&#8672</button>
+                <button class="home-btn" onclick=" window.location.href='webmenu.html' ">&#8672</button>
             </div>
 
             <div class="nav_item nav_item-pdf">
@@ -51,7 +50,7 @@
             <canvas id="pdf_canvas" width="1000" height="1000"></canvas>
         </div>
     </section>
-    <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript" src="./webmenu.js"></script>
     <script type="text/javascript">var pdfDoc = null,
         pageNum = 1,
         pageRendering = false,
@@ -108,7 +107,7 @@
         }
         document.getElementById('next').addEventListener('click',onNextPage)
         
-        pdfjsLib.getDocument('menus/julio.pdf').promise.then((doc) => {
+        pdfjsLib.getDocument('menus/fullmenu.pdf').promise.then((doc) => {
             pdfDoc = doc
             document.getElementById('page_count').textContent = doc.numPages;
             renderPage(pageNum)
