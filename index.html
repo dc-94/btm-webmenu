@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com"> 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
     <link href="https://fonts.googleapis.com/css2?family=Antic+Didone&family=Josefin+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link    href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"   rel="stylesheet"/>
     <link rel="shortcut icon" type="./image/jpg" href="./btm-favicon.png"/>
     <title>Beatmemo Menu</title>
 </head>
@@ -19,13 +19,16 @@
     </header>
     <main class="main">
         <section class="main-items">
-            <button id="btn1"  class="main-items_btn" onclick="window.location.href = './full-menu.html'" > Carta Principal </button>
             <div class="main-items_btns">
+                <button id="btn1"  class="main-items_btn" onclick="window.location.href = './full-menu.html'" > Carta Principal </button>
                 <button id="btn2"  class="main-items_btn" onclick="window.location.href = './mediodia.html'"> Menu Ejecutivo </button>
                 <button id="btn3" class="main-items_btn"  onclick="window.location.href = './hh.html'"> Happy Hour </button>
                 <button id="btn4" class="main-items_btn"  onclick="window.location.href = './whisky.html'"> Whisky Collection </button>
                 <button class="btn-shows" onclick="window.location.href = 'http://beatmemo.com.ar/page/noticias'"> Agenda de Shows </button>
-                <!-- <button onclick="window.location.href = ' ';"> Rooftop </button> -->
+                <button class="btn-rooftop" onclick="window.location.href = 'https://www.instagram.com/rooftopbeatmemo/'">R<i class="ri-glasses-line"></i>ftop</button>
+            </div>
+            <div class="main-items_btns ">
+                <button class="main-items_btn survey" onclick="window.location.href = './form.html '"> Contanos tu experiencia </button>
             </div>
         </section>
     </main>
