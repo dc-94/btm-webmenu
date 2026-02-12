@@ -7,8 +7,17 @@
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { background-color: var(--bg-main); font-family: 'Josefin Sans', sans-serif; color: var(--text-white); overflow-x: hidden; width: 100vw; height: 100vh; }
 
+html, body {
+    background-color: var(--bg-main);
+    font-family: 'Josefin Sans', sans-serif;
+    color: var(--text-white);
+    overflow-x: hidden;
+    width: 100%;
+    height: 100%;
+    /* Truco Senior: Deshabilita zoom táctil pero permite scroll */
+    touch-action: pan-x pan-y; 
+}
 /* HOME (Sin cambios mayores) */
 .home-header { display: flex; justify-content: center; padding: 2rem 0; }
 .img-banner { height: 80px; width: auto; }
@@ -20,34 +29,57 @@ button { width: 100%; padding: 1rem; background-color: var(--bg-dark); border: 1
 .main-redes_icon i { color: #c9c9c9; }
 
 /* VISOR */
-.visor-header { background-color: var(--bg-dark); padding: 15px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; height: 60px; border-bottom: 1px solid #333; }
-#pdf_name { font-family: 'Antic Didone', serif; color: var(--accent); }
-.btn-close-top { width: auto; padding: 5px 10px; border: none; background: transparent; font-size: 1.8rem; color: #ff6b6b; }
+.visor-header { 
+    background-color: var(--bg-dark); 
+    height: 60px;
+    width: 100%;
+    position: sticky; top: 0; z-index: 1000;
+    display: flex; 
+    align-items: center; 
+    justify-content: center; /* Centra el H3 */
+    border-bottom: 1px solid #333;
+}
+
+#pdf_name { 
+    font-family: 'Antic Didone', serif; 
+    color: var(--accent); 
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* El botón de cerrar se posiciona ABSOLUTO para no empujar el título */
+.btn-close-top { 
+    position: absolute; 
+    right: 15px; 
+    width: auto; 
+    border: none; 
+    background: transparent; 
+    font-size: 1.8rem; 
+    color: #ff6b6b; 
+    padding: 0;
+}
 
 #pdf-viewer-container { 
     display: flex; 
     justify-content: center; 
     padding-top: 20px; 
-    padding-bottom: 100px; /* Espacio para el nav */
+    padding-bottom: 90px; /* Espacio para que el nav no tape el PDF */
     width: 100%;
 }
 
-/* EL CANVAS: Aquí está la magia del 90% */
 #the-canvas {
-    direction: ltr;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    /* El ancho se controla por JS, pero esto es fallback */
     max-width: 95vw; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
-/* LOADER */
 #loader-container { display: flex; justify-content: center; padding-top: 50px; }
 .spinner { width: 40px; height: 40px; border: 3px solid rgba(255,255,255,0.1); border-left-color: var(--accent); border-radius: 50%; animation: spin 1s linear infinite; }
 @keyframes spin { to { transform: rotate(360deg); } }
 /* --- NAVEGACIÓN INFERIOR REFACTORED --- */
 .nav-bottom {
     position: fixed;
-    bottom: 20px;
+    bottom: 0px;
     left: 0;
     width: 100%;
     z-index: 2000;
@@ -57,7 +89,7 @@ button { width: 100%; padding: 1rem; background-color: var(--bg-dark); border: 1
 }
 
 .nav-container { 
-    width: 95%; 
+    width: 90%; 
     max-width: 450px; 
     background-color: rgba(16, 16, 16, 0.95); 
     backdrop-filter: blur(10px);
