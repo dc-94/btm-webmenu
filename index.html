@@ -78,17 +78,23 @@
         <nav class="nav-bottom">
             <div class="nav-container">
                 
-                <button class="nav-btn-control" id="prev-page">
-                    <i class="ri-arrow-left-s-line"></i>
+                <button class="nav-btn-action" onclick="window.location.href='index.html'">
+                    <i class="ri-home-4-line"></i>
                 </button>
 
-                <div class="page-indicator">
-                    <span id="page_num">1</span> / <span id="page_count">--</span>
+                <div class="nav-pagination-group">
+                    <button class="nav-btn-control" id="prev-page">
+                        <i class="ri-arrow-left-s-line"></i>
+                    </button>
+                    
+                    <span class="page-indicator">
+                        <span id="page_num">1</span>/<span id="page_count">-</span>
+                    </span>
+
+                    <button class="nav-btn-control" id="next-page">
+                        <i class="ri-arrow-right-s-line"></i>
+                    </button>
                 </div>
-
-                <button class="nav-btn-control" id="next-page">
-                    <i class="ri-arrow-right-s-line"></i>
-                </button>
 
                 <div class="dropdown-container">
                     <input type="checkbox" id="openDropdown" hidden>
@@ -98,10 +104,11 @@
                         <li><a href="index.html?tipo=hh">Happy Hour</a></li>
                         <li><a href="index.html?tipo=whisky">Whiskies</a></li>
                     </ul>
-                    <label for="openDropdown" class="dropdown-icon">
-                        <i class="ri-menu-2-line"></i>
+                    <label for="openDropdown" class="nav-btn-action dropdown-trigger">
+                        <i class="ri-menu-add-line"></i>
                     </label>
                 </div>
+
             </div>
         </nav>
     </div>

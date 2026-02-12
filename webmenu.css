@@ -44,43 +44,97 @@ button { width: 100%; padding: 1rem; background-color: var(--bg-dark); border: 1
 #loader-container { display: flex; justify-content: center; padding-top: 50px; }
 .spinner { width: 40px; height: 40px; border: 3px solid rgba(255,255,255,0.1); border-left-color: var(--accent); border-radius: 50%; animation: spin 1s linear infinite; }
 @keyframes spin { to { transform: rotate(360deg); } }
+/* --- NAVEGACIÓN INFERIOR REFACTORED --- */
+.nav-bottom {
+    position: fixed;
+    bottom: 20px;
+    left: 0;
+    width: 100%;
+    z-index: 2000;
+    display: flex;
+    justify-content: center;
+    pointer-events: none;
+}
 
-/* NAVEGACIÓN INFERIOR (PAGINADOR) */
-.nav-bottom { position: fixed; bottom: 20px; left: 0; width: 100%; z-index: 2000; display: flex; justify-content: center; pointer-events: none; }
 .nav-container { 
-    width: 90%; max-width: 400px; 
+    width: 95%; 
+    max-width: 450px; 
     background-color: rgba(16, 16, 16, 0.95); 
     backdrop-filter: blur(10px);
     border-radius: 50px; 
     border: 1px solid #444;
     display: flex; 
-    justify-content: space-between; 
+    justify-content: space-between; /* Distribuye: Home - Centro - Menu */
     align-items: center; 
-    padding: 8px 15px;
+    padding: 5px 10px;
     pointer-events: auto;
-    box-shadow: var(--shadow-btm);
+    box-shadow: 0px 5px 25px rgba(0,0,0,0.9);
 }
 
+/* Grupo Central (Paginación) */
+.nav-pagination-group {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background-color: rgba(255,255,255,0.05);
+    padding: 2px 10px;
+    border-radius: 20px;
+}
+
+/* Botones de Acción (Home y Menu) */
+.nav-btn-action {
+    width: 42px; 
+    height: 42px; 
+    border-radius: 50%;
+    background: transparent;
+    border: none;
+    color: var(--accent);
+    font-size: 1.4rem;
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.nav-btn-action:active { background: rgba(255,255,255,0.1); }
+
+/* Botones Pequeños (Flechas) */
 .nav-btn-control { 
-    width: 45px; height: 45px; 
+    width: 35px; height: 35px; 
     border-radius: 50%; 
     background: transparent; 
     border: none;
-    font-size: 1.8rem; 
+    color: var(--text-white);
+    font-size: 1.5rem; 
     display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
 }
-.nav-btn-control:active { background: rgba(255,255,255,0.1); }
+.nav-btn-control:active { color: var(--accent); }
 
-.page-indicator { font-family: 'Josefin Sans'; font-size: 1rem; color: var(--accent); white-space: nowrap; }
-
-/* Dropdown Icon */
-.dropdown-icon { 
-    width: 45px; height: 45px; 
-    display: flex; align-items: center; justify-content: center; 
-    font-size: 1.5rem; color: var(--text-white); cursor: pointer;
+.page-indicator { 
+    font-family: 'Josefin Sans'; 
+    font-size: 0.9rem; 
+    color: var(--text-white); 
+    min-width: 30px; 
+    text-align: center; 
+    font-weight: 600;
 }
 
+/* Dropdown (Ajustes finales) */
 .dropdown-container { position: relative; }
-.dropdown-menu { display: none; position: absolute; bottom: 60px; right: 0; background: #1a1a1a; width: 180px; list-style: none; border-radius: 10px; border: 1px solid #444; overflow: hidden; }
+.dropdown-menu { 
+    display: none; 
+    position: absolute; 
+    bottom: 60px; 
+    right: 0; 
+    background: #1a1a1a; 
+    width: 180px; 
+    list-style: none; 
+    border-radius: 12px; 
+    border: 1px solid #444; 
+    overflow: hidden; 
+    box-shadow: 0 10px 30px rgba(0,0,0,1);
+}
 .dropdown-menu li a { display: block; padding: 15px; color: var(--accent); text-decoration: none; text-align: center; border-bottom: 1px solid #333; }
+.dropdown-menu li:last-child a { border-bottom: none; }
 #openDropdown:checked ~ .dropdown-menu { display: block; }
