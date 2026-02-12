@@ -7,18 +7,23 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
     <link href="https://fonts.googleapis.com/css2?family=Antic+Didone&family=Josefin+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+    
     <link rel="stylesheet" href="webmenu.css">
+    <link rel="shortcut icon" type="image/jpg" href="btm-favicon.png"/>
 </head>
 <body>
 
     <div id="view-home" class="view">
         <header class="home-header">
             <img class="img-banner" src="img/recurso1.png" alt="Beatmemo logo">
-<<<<<<< HEAD
         </header>
+        
         <main class="main">
             <section class="main-items">
                 <div class="main-items_btns">
@@ -26,29 +31,12 @@
                     <button onclick="window.location.href = 'index.html?tipo=mediodia'">Menú Ejecutivo</button>
                     <button onclick="window.location.href = 'index.html?tipo=hh'">Happy Hour</button>
                     <button onclick="window.location.href = 'index.html?tipo=whisky'">Whisky Collection</button>
+                    
                     <button class="btn-shows" onclick="window.location.href = 'http://beatmemo.com.ar/page/noticias'">Agenda de Shows</button>
                 </div>
             </section>
+
             <section class="main-redes">
-=======
-    </header>
-    <main class="main">
-        <section class="main-items">
-            <!-- <div class="main-items_title">
-                <h1>¿Que deseas comer hoy?</h1>
-            </div> -->
-            <div class="main-items_btns">
-                <button onclick="window.location.href = 'https://drive.google.com/file/d/1HxyFQ3D0deG2SzHwid7sodjRzCbGXQPO/view?usp=sharing';" > Carta Principal </button>
-                <button onclick="window.location.href = 'https://drive.google.com/file/d/1YcQTEGq3Q-9aYv7eIIl1z3D2kJSLkNSd/view?usp=sharing'"> Menu Ejecutivo </button>
-                <button onclick="window.location.href = 'https://drive.google.com/file/d/19taOIYCpqJQnJoMMfsClxasoqG6heKHj/view?usp=sharing';"> Happy Hour </button>
-                <button onclick="window.location.href = 'https://drive.google.com/file/d/18vNz0M15iSZaA07CwFo-zk22pejEWZuM/view?usp=sharing';"> Whisky Collection </button>
-                <button class="btn-shows" onclick="window.location.href = 'http://beatmemo.com.ar/page/noticias'"> Agenda de Shows </button>
-                <!-- <button class="btn-rooftop" onclick="window.location.href = ' ';"> Rooftop </button> -->
-            </div>
-        </section>
-        <section class="main-redes">
-            <div class="main-redes_title">
->>>>>>> 791b760369e7e49e31c8340a4c4effefe20d165b
                 <h2>seguinos</h2>
                 <div class="main-redes_icon">
                     <a href="https://www.instagram.com/beatmemo_rosario"><i class="ri-instagram-fill"></i></a>
@@ -60,15 +48,17 @@
     </div>
 
     <div id="view-visor" class="view" style="display: none;">
+        
         <header class="visor-header">
             <h3 id="pdf_name">CARGANDO...</h3>
-             <button class="btn-close-top" onclick="window.location.href='index.html'">
+            <button class="btn-close-top" onclick="window.location.href='index.html'">
                 <i class="ri-close-circle-line"></i>
             </button>
         </header>
 
         <div id="loader-container">
             <div class="spinner"></div>
+            <p class="loader-text">Preparando la carta...</p>
         </div>
 
         <main id="pdf-viewer-container">
@@ -78,33 +68,35 @@
         <nav class="nav-bottom">
             <div class="nav-container">
                 
-                <button class="nav-btn-action" onclick="window.location.href='index.html'">
+                <button class="nav-btn-action" onclick="window.location.href='index.html'" aria-label="Volver al Inicio">
                     <i class="ri-home-4-line"></i>
                 </button>
 
                 <div class="nav-pagination-group">
-                    <button class="nav-btn-control" id="prev-page">
+                    <button class="nav-btn-control" id="prev-page" aria-label="Página Anterior">
                         <i class="ri-arrow-left-s-line"></i>
                     </button>
                     
                     <span class="page-indicator">
-                        <span id="page_num">1</span>/<span id="page_count">-</span>
+                        <span id="page_num">1</span> / <span id="page_count">-</span>
                     </span>
 
-                    <button class="nav-btn-control" id="next-page">
+                    <button class="nav-btn-control" id="next-page" aria-label="Página Siguiente">
                         <i class="ri-arrow-right-s-line"></i>
                     </button>
                 </div>
 
                 <div class="dropdown-container">
                     <input type="checkbox" id="openDropdown" hidden>
+                    
                     <ul class="dropdown-menu">
                         <li><a href="index.html?tipo=fullmenu">Principal</a></li>
                         <li><a href="index.html?tipo=mediodia">Ejecutivo</a></li>
                         <li><a href="index.html?tipo=hh">Happy Hour</a></li>
                         <li><a href="index.html?tipo=whisky">Whiskies</a></li>
                     </ul>
-                    <label for="openDropdown" class="nav-btn-action dropdown-trigger">
+                    
+                    <label for="openDropdown" class="nav-btn-action dropdown-trigger" aria-label="Abrir Menú">
                         <i class="ri-menu-add-line"></i>
                     </label>
                 </div>
