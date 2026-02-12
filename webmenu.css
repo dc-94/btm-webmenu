@@ -3,9 +3,10 @@
     --bg-main: #1F1F1F;
     --accent: #fffce5;
     --text-white: #fafafa;
-    --shadow-btm: 0px 5px 25px rgba(0,0,0,0.9);
+    --shadow-btm: 0px -5px 20px rgba(0,0,0,0.8);
 }
 
+/* RESET & CONFIGURACIÓN BASE */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 html, body {
@@ -15,31 +16,36 @@ html, body {
     overflow-x: hidden;
     width: 100%;
     height: 100%;
-    /* Truco Senior: Deshabilita zoom táctil pero permite scroll */
+    /* Deshabilita zoom táctil pero permite scroll */
     touch-action: pan-x pan-y; 
 }
-/* HOME (Sin cambios mayores) */
+a{
+    text-decoration: none;
+}
+
+/* --- HOME --- */
 .home-header { display: flex; justify-content: center; padding: 2rem 0; }
 .img-banner { height: 80px; width: auto; }
 .main-items { display: flex; flex-direction: column; align-items: center; }
 .main-items_btns { display: flex; flex-direction: column; gap: 15px; width: 85%; max-width: 400px; }
-button { width: 100%; padding: 1rem; background-color: var(--bg-dark); border: 1px solid #333; border-radius: 12px; color: var(--text-white); font-size: 1.1rem; cursor: pointer; }
-.main-redes { text-align: center; margin-top: 2rem; }
-.main-redes_icon { display: flex; justify-content: center; gap: 20px; font-size: 2rem; margin-top: 10px; }
-.main-redes_icon i { color: #c9c9c9; }
+.main-redes { 
+    text-align: center; 
+    margin-top: 2rem; }
+.main-redes_icon { display: flex; justify-content: center; gap: 4rem;  margin-top: 10px; }
+.main-redes_icon i {
+    font-size: 3rem; 
+    color: #fafafa;
+    }
 
-/* VISOR */
+/* --- VISOR HEADER --- */
 .visor-header { 
     background-color: var(--bg-dark); 
     height: 60px;
     width: 100%;
     position: sticky; top: 0; z-index: 1000;
-    display: flex; 
-    align-items: center; 
-    justify-content: center; /* Centra el H3 */
+    display: flex; align-items: center; justify-content: center;
     border-bottom: 1px solid #333;
 }
-
 #pdf_name { 
     font-family: 'Antic Didone', serif; 
     color: var(--accent); 
@@ -48,125 +54,154 @@ button { width: 100%; padding: 1rem; background-color: var(--bg-dark); border: 1
     letter-spacing: 1px;
 }
 
-/* El botón de cerrar se posiciona ABSOLUTO para no empujar el título */
-.btn-close-top { 
-    position: absolute; 
-    right: 15px; 
-    width: auto; 
-    border: none; 
-    background: transparent; 
-    font-size: 1.8rem; 
-    color: #ff6b6b; 
-    padding: 0;
-}
-
+/* --- CANVAS & CONTENEDOR --- */
 #pdf-viewer-container { 
-    display: flex; 
-    justify-content: center; 
+    display: flex; justify-content: center; 
     padding-top: 20px; 
-    padding-bottom: 90px; /* Espacio para que el nav no tape el PDF */
+    padding-bottom: 90px; /* Espacio para navbar */
     width: 100%;
 }
-
 #the-canvas {
     max-width: 95vw; 
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
-#loader-container { display: flex; justify-content: center; padding-top: 50px; }
+/* --- LOADER --- */
+#loader-container { display: flex; flex-direction: column; align-items: center; padding-top: 50px; }
+.loader-text { margin-top: 10px; color: var(--accent); font-weight: 200; }
 .spinner { width: 40px; height: 40px; border: 3px solid rgba(255,255,255,0.1); border-left-color: var(--accent); border-radius: 50%; animation: spin 1s linear infinite; }
 @keyframes spin { to { transform: rotate(360deg); } }
-/* --- NAVEGACIÓN INFERIOR REFACTORED --- */
+
+/* --- NAVEGACIÓN INFERIOR (APP STYLE) --- */
 .nav-bottom {
-    position: fixed;
-    bottom: 0px;
-    left: 0;
-    width: 100%;
-    z-index: 2000;
-    display: flex;
-    justify-content: center;
-    pointer-events: none;
+    position: fixed; bottom: 0; left: 0; width: 100%; z-index: 2000;
+    background-color: var(--bg-dark);
+    border-top: 1px solid #333;
+    /* Respeta la barra de gestos del iPhone */
+    padding-bottom: env(safe-area-inset-bottom);
 }
-
 .nav-container { 
-    width: 90%; 
-    max-width: 450px; 
-    background-color: rgba(16, 16, 16, 0.95); 
-    backdrop-filter: blur(10px);
-    border-radius: 50px; 
-    border: 1px solid #444;
-    display: flex; 
-    justify-content: space-between; /* Distribuye: Home - Centro - Menu */
-    align-items: center; 
-    padding: 5px 10px;
-    pointer-events: auto;
-    box-shadow: 0px 5px 25px rgba(0,0,0,0.9);
+    width: 100%; max-width: 600px; margin: 0 auto;
+    display: flex; justify-content: space-around; align-items: center; 
+    padding: 10px 15px; height: 60px;
 }
 
-/* Grupo Central (Paginación) */
+/* GRUPO CENTRAL (Paginación) */
 .nav-pagination-group {
-    display: flex;
-    align-items: center;
-    gap: 5px;
+    display: flex; align-items: center; gap: 15px;
     background-color: rgba(255,255,255,0.05);
-    padding: 2px 10px;
-    border-radius: 20px;
+    padding: 5px 15px; border-radius: 30px;
 }
-
-/* Botones de Acción (Home y Menu) */
-.nav-btn-action {
-    width: 42px; 
-    height: 42px; 
-    border-radius: 50%;
-    background: transparent;
-    border: none;
-    color: var(--accent);
-    font-size: 1.4rem;
-    display: flex; 
-    align-items: center; 
-    justify-content: center;
-    cursor: pointer;
-    transition: background 0.2s;
-}
-.nav-btn-action:active { background: rgba(255,255,255,0.1); }
-
-/* Botones Pequeños (Flechas) */
-.nav-btn-control { 
-    width: 35px; height: 35px; 
-    border-radius: 50%; 
-    background: transparent; 
-    border: none;
-    color: var(--text-white);
-    font-size: 1.5rem; 
-    display: flex; align-items: center; justify-content: center;
-    cursor: pointer;
-}
-.nav-btn-control:active { color: var(--accent); }
-
 .page-indicator { 
-    font-family: 'Josefin Sans'; 
-    font-size: 0.9rem; 
-    color: var(--text-white); 
-    min-width: 30px; 
-    text-align: center; 
-    font-weight: 600;
+    font-family: 'Josefin Sans'; font-size: 1rem; color: var(--text-white); font-weight: 600; min-width: 40px; text-align: center; 
 }
 
-/* Dropdown (Ajustes finales) */
+/* DROPDOWN */
 .dropdown-container { position: relative; }
 .dropdown-menu { 
-    display: none; 
-    position: absolute; 
-    bottom: 60px; 
-    right: 0; 
-    background: #1a1a1a; 
-    width: 180px; 
-    list-style: none; 
-    border-radius: 12px; 
-    border: 1px solid #444; 
-    overflow: hidden; 
-    box-shadow: 0 10px 30px rgba(0,0,0,1);
+    display: none; position: absolute; bottom: 55px; right: -10px;
+    background: #1a1a1ae6; width: 200px; list-style: none; 
+    border-radius: 12px; border: 1px solid #444; overflow: hidden; 
+    box-shadow: 0 -5px 20px rgba(0,0,0,0.5); backdrop-filter: blur(10px);
 }
 .dropdown-menu li a { display: block; padding: 15px; color: var(--accent); text-decoration: none; text-align: center; border-bottom: 1px solid #333; }
 .dropdown-menu li:last-child a { border-bottom: none; }
 #openDropdown:checked ~ .dropdown-menu { display: block; }
+
+/* 1. Botones Generales */
+button {
+    width: 100%; padding: 1rem; background-color: var(--bg-dark);
+    border: 1px solid #333; border-radius: 12px;
+    color: var(--text-white); font-size: 1.1rem; cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative; overflow: hidden;
+}
+button:hover, button:active {
+    border-color: #fffce5d3; 
+    color: var(--accent);
+    box-shadow: 0 0 10px #fffce5b2; 
+    transform: translateY(-2px);
+}
+.btn-shows { background-color: #391010;
+     border-color: #391010; }
+.btn-rooftop {
+    background-color: #fafafa; /* Fondo claro */
+    color: #101010; /* Texto oscuro */
+    border-color: #fafafa;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* Separación si usas icono */
+}
+/* .btn-rooftop i{
+    font-size: 2.5rem;
+    font-weight: 100;
+} */
+/* Glow Blanco para el Rooftop */
+.btn-rooftop:hover,
+.btn-rooftop:active {
+    background-color: #efefef;
+    color: #101010;
+}
+
+/* BOTÓN GOOGLE REVIEWS */
+.btn-google {
+    background-color: transparent; /* Un poco más claro que el fondo */
+    color: #e8eaed;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;border: none;
+    margin-top: 0.5rem;
+}
+
+
+/* Glow Azul al interactuar */
+.btn-google:hover,
+.btn-google:active {
+    background-color: #10101032; /* Fondo azulado muy sutil *
+    
+    /* El resplandor característico */
+    text-shadow: 0 0 5px #0000   ;
+    transform: translateY(-2px);
+    font-size: 1.2rem;
+}
+/*  Botones Iconos (Navbar) */
+.nav-btn-action {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: transparent; border: none;
+    color: var(--accent); font-size: 1.5rem;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.2s ease-out;
+}
+.nav-btn-action:active {
+    background-color: rgba(255, 255, 255, 0.05);
+    text-shadow: 0 0 10px var(--accent);
+    box-shadow: 0 0 10px rgba(255, 252, 229, 0.2);
+    transform: scale(1.1);
+}
+
+/* 3. Botones Flechas */
+.nav-btn-control { 
+    width: 40px; height: 40px; background: transparent; border: none;
+    color: var(--text-white); font-size: 1.8rem; 
+    display: flex; align-items: center; justify-content: center;
+    transition: transform 0.1s; cursor: pointer;
+}
+.nav-btn-control:active { 
+    color: var(--accent); text-shadow: 0 0 8px var(--accent);
+    transform: scale(0.85);
+}
+
+/* 4. Botón Cerrar (Excepción Roja) */
+.btn-close-top {
+    position: absolute; right: 15px; width: auto; padding: 5px;
+    border: none; background: transparent; 
+    font-size: 1.8rem; color: #ff6b6b; 
+    box-shadow: none !important; transform: none !important;
+}
+.btn-close-top:active { color: #ff0000; transform: scale(0.9) !important; }
