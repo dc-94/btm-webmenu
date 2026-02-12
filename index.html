@@ -1,62 +1,84 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="theme-color" content="#101010">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./webmenu.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com"> 
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
-    <link href="https://fonts.googleapis.com/css2?family=Antic+Didone&family=Josefin+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-    <link    href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"   rel="stylesheet"/>
-    <link rel="shortcut icon" type="./image/jpg" href="./btm-favicon.png"/>
-    <title>Beatmemo Menu</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Beatmemo - Menú Digital</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Antic+Didone&family=Josefin+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+    
+    <link rel="stylesheet" href="webmenu.css">
+    <link rel="shortcut icon" type="image/jpg" href="btm-favicon.png"/>
 </head>
 <body>
-    <header>
-            <img class="img-banner" src="./recurso1.png" alt="Beatmemo logo">
-    </header>
-    <main class="main">
-        <section class="main-items">
-            <div class="main-items_btns">
-                <button id="btn1"  class="main-items_btn" onclick="window.location.href = './full-menu.html'" > Carta Principal </button>
-                <button id="btn2"  class="main-items_btn" onclick="window.location.href = './mediodia.html'"> Menu Ejecutivo </button>
-                <button id="btn3" class="main-items_btn"  onclick="window.location.href = './hh.html'"> Happy Hour </button>
-                <button id="btn4" class="main-items_btn"  onclick="window.location.href = './whisky.html'"> Whisky Collection </button>
-                <button class="btn-shows" onclick="window.location.href = 'http://beatmemo.com.ar/page/noticias'"> Agenda de Shows </button>
-                <button class="btn-rooftop" onclick="window.location.href = 'https://www.instagram.com/rooftopbeatmemo/'">R<i class="ri-glasses-line"></i>ftop</button>
-            </div>
-            <div class="main-items_btns ">
-                <button class="main-items_btn survey" onclick="window.location.href = './form.html '"> google <form action=""></form></button>
-                    <div data-tf-live="01J0TW2GWJCKHDB76CNWY1SR3H"></div>
-                    <script src="//embed.typeform.com/next/embed.js"></script>
-            </div>
-        </section>
-    </main>
-        <footer class="main-redes">
-            <div class="main-redes_title">
+
+    <div id="view-home" class="view">
+        <header class="home-header">
+            <img class="img-banner" src="img/recurso1.png" alt="Beatmemo logo">
+        </header>
+        
+        <main class="main">
+            <section class="main-items">
+                <div class="main-items_btns">
+                    <button onclick="window.location.href = 'index.html?tipo=fullmenu'">Carta Principal</button>
+                    <button onclick="window.location.href = 'index.html?tipo=mediodia'">Menú Ejecutivo</button>
+                    <button onclick="window.location.href = 'index.html?tipo=hh'">Happy Hour</button>
+                    <button onclick="window.location.href = 'index.html?tipo=whisky'">Whisky Collection</button>
+                    <button class="btn-shows" onclick="window.location.href = 'http://beatmemo.com.ar/page/noticias'">Agenda de Shows</button>
+                </div>
+            </section>
+
+            <section class="main-redes">
                 <h2>seguinos</h2>
+                <div class="main-redes_icon">
+                    <a href="https://www.instagram.com/beatmemo_rosario"><i class="ri-instagram-fill"></i></a>
+                    <a href="https://www.facebook.com/beatmemopub/"><i class="ri-facebook-circle-fill"></i></a>
+                    <a href="http://twitter.com/beatmemo"><i class="ri-twitter-fill"></i></a>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div id="view-visor" class="view" style="display: none;">
+        <header class="visor-header">
+            <h3 id="pdf_name">CARGANDO...</h3>
+        </header>
+
+        <div id="loader-container">
+            <div class="spinner"></div>
+            <p class="loader-text">Preparando la carta...</p>
+        </div>
+
+        <main id="pdf-viewer-container"></main>
+
+        <nav class="nav-bottom">
+            <div class="nav-container">
+                <button class="nav-btn-back" onclick="window.location.href='index.html'">
+                    <i class="ri-home-4-line"></i>
+                </button>
+
+                <div class="dropdown-container">
+                    <input type="checkbox" id="openDropdown" hidden>
+                    <ul class="dropdown-menu">
+                        <li><a href="index.html?tipo=fullmenu">Principal</a></li>
+                        <li><a href="index.html?tipo=mediodia">Ejecutivo</a></li>
+                        <li><a href="index.html?tipo=hh">Happy Hour</a></li>
+                        <li><a href="index.html?tipo=whisky">Whiskies</a></li>
+                    </ul>
+                    <label for="openDropdown" class="dropdown">
+                        MENÚ <i class="ri-menu-2-line"></i>
+                    </label>
+                </div>
             </div>
-            <div class="main-redes_icon">
-                <div>
-                    <a href="https://www.instagram.com/beatmemo_rosario">
-                        <i class="ri-instagram-fill"></i>
-                    </a>
-                </div>
-                <div>
-                    <a href="https://www.facebook.com/beatmemopub/">
-                    <i class="ri-facebook-circle-fill"></i>
-                </a>
-                </div>
-                <div>
-                    <a href="http://twitter.com/beatmemo">
-                    <i class="ri-twitter-fill"></i>
-                    </a>
-                </div>
-            </div>
-        </footer>
+        </nav>
+    </div>
+
+    <script src="webmenu.js"></script>
 </body>
-    <script type="text/javascript" src="./webmenu.js">
-        </script>
 </html>
