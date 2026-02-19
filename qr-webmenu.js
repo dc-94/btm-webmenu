@@ -42,10 +42,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 async function initVisor(tipo) {
     const titulos = {
-        'fullmenu': 'CARTA PRINCIPAL',
-        'mediodia': 'MENÚ EJECUTIVO',
-        'hh': 'HAPPY HOUR',
-        'whisky': 'WHISKY COLLECTION'
+        'fullmenu1': 'CARTA PRINCIPAL',
+        'ejecutivo1': 'MENÚ EJECUTIVO',
+        'hh1': 'HAPPY HOUR',
+        'whisky1': 'WHISKY COLLECTION'
     };
     
     document.getElementById('pdf_name').textContent = titulos[tipo] || 'MENÚ';

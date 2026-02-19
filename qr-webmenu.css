@@ -5,8 +5,6 @@
     --text-white: #fafafa;
     --shadow-btm: 0px -5px 20px rgba(0,0,0,0.8);
 }
-
-/* RESET & CONFIGURACIÓN BASE */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 html, body {
@@ -37,7 +35,7 @@ a{
     color: #fafafa;
     }
 
-/* --- VISOR HEADER --- */
+/* --- Canvas HEADER --- */
 .visor-header { 
     background-color: var(--bg-dark); 
     height: 60px;
@@ -47,18 +45,17 @@ a{
     border-bottom: 1px solid #333;
 }
 #pdf_name { 
-    font-family: 'Antic Didone', serif; 
     color: var(--accent); 
     font-size: 1.2rem;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
-/* --- CANVAS & CONTENEDOR --- */
+/* --- CANVAS  --- */
 #pdf-viewer-container { 
     display: flex; justify-content: center; 
     padding-top: 20px; 
-    padding-bottom: 90px; /* Espacio para navbar */
+    padding-bottom: 90px; 
     width: 100%;
 }
 #the-canvas {
@@ -72,12 +69,11 @@ a{
 .spinner { width: 40px; height: 40px; border: 3px solid rgba(255,255,255,0.1); border-left-color: var(--accent); border-radius: 50%; animation: spin 1s linear infinite; }
 @keyframes spin { to { transform: rotate(360deg); } }
 
-/* --- NAVEGACIÓN INFERIOR (APP STYLE) --- */
+/* --- NAVEGACIÓN INFERIOR --- */
 .nav-bottom {
     position: fixed; bottom: 0; left: 0; width: 100%; z-index: 2000;
     background-color: var(--bg-dark);
     border-top: 1px solid #333;
-    /* Respeta la barra de gestos del iPhone */
     padding-bottom: env(safe-area-inset-bottom);
 }
 .nav-container { 
@@ -86,7 +82,7 @@ a{
     padding: 10px 15px; height: 60px;
 }
 
-/* GRUPO CENTRAL (Paginación) */
+/*Nav Paginas */
 .nav-pagination-group {
     display: flex; align-items: center; gap: 15px;
     background-color: rgba(255,255,255,0.05);
@@ -96,7 +92,7 @@ a{
     font-family: 'Josefin Sans'; font-size: 1rem; color: var(--text-white); font-weight: 600; min-width: 40px; text-align: center; 
 }
 
-/* DROPDOWN */
+/* DROPDOWN Menu*/
 .dropdown-container { position: relative; }
 .dropdown-menu { 
     display: none; position: absolute; bottom: 55px; right: -10px;
@@ -108,11 +104,11 @@ a{
 .dropdown-menu li:last-child a { border-bottom: none; }
 #openDropdown:checked ~ .dropdown-menu { display: block; }
 
-/* 1. Botones Generales */
+/* Botones  */
 button {
     width: 100%; padding: 1rem; background-color: var(--bg-dark);
     border: 1px solid #333; border-radius: 12px;
-    color: var(--text-white); font-size: 1.1rem; cursor: pointer;
+    color: var(--text-white); font-size: 1rem; cursor: pointer;
     transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     position: relative; overflow: hidden;
 }
@@ -122,11 +118,14 @@ button:hover, button:active {
     box-shadow: 0 0 10px #fffce5b2; 
     transform: translateY(-2px);
 }
+/* Shows */
 .btn-shows { background-color: #391010;
      border-color: #391010; }
+
+ /* Rooftop */
 .btn-rooftop {
-    background-color: #fafafa; /* Fondo claro */
-    color: #101010; /* Texto oscuro */
+    background-color: #fafafa; 
+    color: #101010; 
     border-color: #fafafa;
     font-weight: 600;
     letter-spacing: 1px;
@@ -134,43 +133,34 @@ button:hover, button:active {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px; /* Separación si usas icono */
 }
-/* .btn-rooftop i{
-    font-size: 2.5rem;
-    font-weight: 100;
-} */
-/* Glow Blanco para el Rooftop */
 .btn-rooftop:hover,
 .btn-rooftop:active {
     background-color: #efefef;
     color: #101010;
 }
 
-/* BOTÓN GOOGLE REVIEWS */
+/*  GOOGLE REVIEWS */
 .btn-google {
-    background-color: transparent; /* Un poco más claro que el fondo */
+    background-color: transparent; 
     color: #e8eaed;
     font-weight: 500;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;border: none;
+    gap: 5px;border: none;
     margin-top: 0.5rem;
 }
 
-
-/* Glow Azul al interactuar */
 .btn-google:hover,
 .btn-google:active {
-    background-color: #10101032; /* Fondo azulado muy sutil *
+    background-color: #10101032; 
     
-    /* El resplandor característico */
     text-shadow: 0 0 5px #0000   ;
-    transform: translateY(-2px);
-    font-size: 1.2rem;
+    transform: translateY(-1px);
+    font-weight: 700;
 }
-/*  Botones Iconos (Navbar) */
+/*  Menu principal */
 .nav-btn-action {
     width: 44px; height: 44px; border-radius: 50%;
     background: transparent; border: none;
@@ -185,7 +175,7 @@ button:hover, button:active {
     transform: scale(1.1);
 }
 
-/* 3. Botones Flechas */
+/*Botones Flechas */
 .nav-btn-control { 
     width: 40px; height: 40px; background: transparent; border: none;
     color: var(--text-white); font-size: 1.8rem; 
@@ -197,7 +187,7 @@ button:hover, button:active {
     transform: scale(0.85);
 }
 
-/* 4. Botón Cerrar (Excepción Roja) */
+/*Botón Cerrar (Excepción Roja) */
 .btn-close-top {
     position: absolute; right: 15px; width: auto; padding: 5px;
     border: none; background: transparent; 
